@@ -1,11 +1,14 @@
 body{
-    background-color: rgb(26, 23, 23);
+    display: flex;
+    background-color: #1a1717;
 }
 
 .side-bar{
     background-color: rgb(16, 15, 15);
     height: 100vh;
+    flex-shrink: 1;
     width: 200px;
+    position: relative;
     margin: -10px;
     border-radius: 5px;
     border-right: solid rgb(255, 255, 255, 0.459);
@@ -16,10 +19,33 @@ body{
     height: 60px;
     position: absolute;
     border-radius: 5px;
-    top: 5px;
+    top: 0;
     width: calc(100% - 200px);
     left: 200px;
     border-bottom: solid rgba(255, 255, 255, 0.459) ;
+}
 
+.Todo-list-container{
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 700px;
+    bottom: 300px;
+}
+
+.todo-list{
+    display: block;
+    background-color: #1a1717;
+    position: relative;
+    top: 25px;
+    border: none;
+    color: white;
+    font-size: 20px;
+    resize: none;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.todo-list:focus{
+    outline: none;
 }
 
