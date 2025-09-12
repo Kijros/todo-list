@@ -1,5 +1,4 @@
 body{
-    display: flex;
     background-color: #1a1717;
 }
 
@@ -28,16 +27,16 @@ body{
 .Todo-list-container{
     display: flex;
     align-items: center;
+    flex-direction: column;
     position: relative;
-    left: 700px;
-    bottom: 300px;
+    width: 400px;
+    left: 900px;
+    bottom: 800px;
 }
 
 .todo-list{
-    display: block;
     background-color: #1a1717;
     position: relative;
-    top: 25px;
     border: none;
     color: white;
     font-size: 20px;
