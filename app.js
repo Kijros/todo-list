@@ -1,7 +1,7 @@
 const checkListArray = [];
 const todoListContainer = document.getElementById("root");
 
-function addCheckbox(){
+function addCheckList(){
 
     // check if user clicked enter
     todoListContainer.addEventListener('keypress', function(event){
@@ -31,4 +31,32 @@ function addCheckbox(){
         }
     })
 }
-addCheckbox();
+
+function deleteCheckList(){
+    // check if Arraylist has any labels
+        todoListContainer.addEventListener('keydown', function(event){
+            if(checkListArray.length > 0){
+                console.log("array if statement is true")
+
+            if(event.key === "Backspace"){
+                console.log("Backspace has been clicked")
+
+                // pop the element from the array
+                let deleteElement = checkListArray.pop();
+
+                // delete the element from DOM
+                deleteElement.remove();
+                console.log("array length"+ checkListArray.length);
+
+            }
+        }
+        else{
+            console.log("array if statement is false" + console.log(checkListArray.length));
+        }
+
+        })
+    }
+
+
+addCheckList();
+deleteCheckList();
