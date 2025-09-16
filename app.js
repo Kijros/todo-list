@@ -2,6 +2,7 @@ const checkListArray = [];
 const todoListContainer = document.getElementById("root");
 
 function addCheckList(){
+    let arrayLength = checkListArray.length;
 
     // check if user clicked enter
     todoListContainer.addEventListener('keypress', function(event){
@@ -28,35 +29,43 @@ function addCheckList(){
 
             // push the array to the container
             todoListContainer.appendChild(label);
+            console.log("Array length in adding function :" + arrayLength);
+            checkArrayContent();
         }
     })
 }
 
 function deleteCheckList(){
+    // cheeck if there is anything inside the array
+    const lastLabel = checkListArray[checkListArray.length - 1];
+    const textinput = lastLabel.querySelector('input[type="text"]');
+
+
     // check if Arraylist has any labels
         todoListContainer.addEventListener('keydown', function(event){
-            if(checkListArray.length > 0){
-                console.log("array if statement is true")
-
-            if(event.key === "Backspace"){
-                console.log("Backspace has been clicked")
+            if(event.key === "Backspace" && textinput.length === 0){
 
                 // pop the element from the array
                 let deleteElement = checkListArray.pop();
 
                 // delete the element from DOM
                 deleteElement.remove();
-                console.log("array length"+ checkListArray.length);
 
             }
-        }
         else{
             console.log("array if statement is false" + console.log(checkListArray.length));
         }
 
         })
     }
+    function checkArrayContent() {
+        
+        checkListArray.forEach((label, index) => {
+            const textInput = label.querySelector('input ["type=text"]')
+            console.log('Label ${index}:', label);
+            consol.log('Text input value : ' , textInput.value);
+        })
+    }
 
 
 addCheckList();
-deleteCheckList();
