@@ -29,21 +29,24 @@ function addCheckList(){
 
             // push the array to the container
             todoListContainer.appendChild(label);
-            console.log("Array length in adding function :" + arrayLength);
-            checkArrayContent();
         }
     })
 }
 
 function deleteCheckList(){
-    // cheeck if there is anything inside the array
-    const lastLabel = checkListArray[checkListArray.length - 1];
-    const textinput = lastLabel.querySelector('input[type="text"]');
-
-
-    // check if Arraylist has any labels
+        // check if user clicked backspace
         todoListContainer.addEventListener('keydown', function(event){
-            if(event.key === "Backspace" && textinput.length === 0){
+            // check if the array have any label inside it
+            if(checkListArray.length === 0){
+                console.log("no label inside array to delete")
+                return;
+            }
+            // initilazing last label inside the eventListener so the array current state get updated
+            const lastLabel = checkListArray[checkListArray.length - 1];
+            const textinput = lastLabel.querySelector('input[type="text"]');
+
+            // check if the backspce get clicked and if there is any text in the label
+            if(event.key === "Backspace" && textinput.value.length == 0){
 
                 // pop the element from the array
                 let deleteElement = checkListArray.pop();
@@ -51,21 +54,10 @@ function deleteCheckList(){
                 // delete the element from DOM
                 deleteElement.remove();
 
-            }
-        else{
-            console.log("array if statement is false" + console.log(checkListArray.length));
-        }
+           }
 
         })
     }
-    function checkArrayContent() {
-        
-        checkListArray.forEach((label, index) => {
-            const textInput = label.querySelector('input ["type=text"]')
-            console.log('Label ${index}:', label);
-            consol.log('Text input value : ' , textInput.value);
-        })
-    }
-
 
 addCheckList();
+deleteCheckList();
